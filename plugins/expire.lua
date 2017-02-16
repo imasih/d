@@ -5,7 +5,7 @@
      **************************
      *  Powered By @BeyondTeam  *
      *                        *
-     *      By @Solid        *
+     *      By @Tele_Sudo        *
      *                        *
      *  Channel > @BeyondTeam   *
      **************************
@@ -39,13 +39,11 @@ if gpid_cmd and is_sudo(msg) then
    end
 end
 if gp_type(msg.chat_id_) ~= 'pv' then
-local link = 'link:'..msg.chat_id_
-local group_link = redis:get(link)
 
 if not redis:get("charged:"..msg.chat_id_) and not is_sudo(msg) then
-local sudo = 157059515
+local sudo = 326824638
 local t1 = "شارژ این گروه به اتمام رسید \n\nID : "..msg.chat_id_..'\n\nدر صورتی که میخواهید ربات این گروه را ترک کند از دستور زیر استفاده کنید\n\n/leave '..msg.chat_id_..'\nبرای جوین دادن توی این گروه میتونی از دستور زیر استفاده کنی:\n/join91752'..msg.chat_id_..'\n_________________\nدر صورتی که میخواهید گروه رو دوباره شارژ کنید میتوانید از کد های زیر استفاده کنید...\n\n<code>برای شارژ 1 ماهه:</code>\n/plan1'..msg.chat_id_..'\n\n<code>برای شارژ 3 ماهه:</code>\n/plan2'..msg.chat_id_..'\n\n<code>برای شارژ نامحدود:</code>\n/plan3'..msg.chat_id_
-local t2 = "شارژ این گروه به اتمام رسید و ربات از گروه خارج میشود...\nبرای تمدید کردن ربات به @ibornbot پیام دهید.\nدر صورت ریپورت بودن میتوانید با ربات زیر با ما در ارتباط باشید:\n"
+local t2 = "شارژ این گروه به اتمام رسید و ربات از گروه خارج میشود...\nبرای تمدید کردن ربات به @ibornbot پیام دهید.\nدر صورت ریپورت بودن میتوانید با ربات زیر با ما در ارتباط باشید:"
 tdcli.sendMessage(sudo, 0, 1, t1, 1, 'html')
 tdcli.sendMessage(msg.chat_id_, 0, 1, t2, 1, 'html')
        modrem(msg)
@@ -80,7 +78,7 @@ end
 end
 	if is_sudo(msg) then
   if matches[1] == 'leave' and matches[2] then
-	   tdcli.sendMessage(matches[2], 0, 1, "ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @ibornbot در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید", 1, 'html')
+	   tdcli.sendMessage(matches[2], 0, 1, "ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @Tele_Sudo در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید", 1, 'html')
   tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)
 return tdcli.sendMessage(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت از گروه '..matches[2]..' خارج شد.', 1,'html')
   end
@@ -94,7 +92,7 @@ return tdcli.sendMessage(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت �
   if matches[1]:lower() == 'plan' and matches[2] == '2' and matches[3] then
        local timeplan2 = 7776000
        redis:setex("charged:"..matches[3],timeplan2,true)
-	   tdcli.sendMessage(msg.chat_id_, msg.id_,'پلن 2 با موفقیت برای گروه '..matches[3]..' فعال شد\nاین گروه تا 90 روز دیگر اعتبار دارد! ( 3 ماه )',ok_cb,false)
+	   tdcli.sendMessage(msg.chat_id_, msg.id_, 1, 'پلن 2 با موفقیت برای گروه '..matches[3]..' فعال شد\nاین گروه تا 90 روز دیگر اعتبار دارد! ( 3 ماه )', 1, 'html')
 	   tdcli.sendMessage(matches[3], 0, 1, "ربات با موفقیت فعال شد و تا 90 روز دیگر اعتبار دارد! ( 3 ماه )", 1, 'html')
        
   end
@@ -104,7 +102,7 @@ return tdcli.sendMessage(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت �
 	   tdcli.sendMessage(matches[3], 0, 1, "ربات بدون محدودیت فعال شد ! ( نامحدود )", 1, 'html')
   end
    if matches[1]:lower() == 'join' and matches[2] == '91752' and matches[3] then
-   local sudo = 157059515 --ID SUDO
+   local sudo = 326824638 --ID SUDO
 	   tdcli.sendMessage(sudo, msg.id_, 1, 'با موفقیت تورو به گروه '..matches[3]..' اضافه کردم.', 1, 'html')
 	   tdcli.sendMessage(matches[3], 0, 1, "Admin Joined!🌚", 1, 'html')
     tdcli.addChatMember(matches[3], sudo, 0, dl_cb, nil)
@@ -146,7 +144,7 @@ pre_process = pre_process
      **************************
      *  Powered By @BeyondTeam  *
      *                        *
-     *      By @Solid        *
+     *      By @Tele_Sudo        *
      *                        *
      *  Channel > @BeyondTeam   *
      **************************
